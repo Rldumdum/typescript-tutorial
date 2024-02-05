@@ -7,10 +7,11 @@ export interface Todo {
 export type Actions =
   | { type: "add"; payload: string }
   | { type: "remove"; payload: number }
-  | { type: "done"; payload: number };
+  | { type: "done"; payload: number }
+  | { type: "edit"; payload: { id: number; todo: string } };
 
 export const TodoReducer = (state: Todo[], action: Actions) => {
-  const {type} = action
+  const { type } = action;
   switch (type) {
     case "add":
       return [
@@ -27,4 +28,3 @@ export const TodoReducer = (state: Todo[], action: Actions) => {
       return state;
   }
 };
-
